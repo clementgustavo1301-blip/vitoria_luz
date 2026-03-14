@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitória Luz | Enfermeira Especialista em Feridas</title>
+    <meta name="description"
+        content="Vitória Luz — enfermeira especialista em tratamento de feridas complexas, estomaterapia e atendimento domiciliar humanizado.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vitória Luz | Enfermeira Especialista em Feridas">
+    <meta property="og:description"
+        content="Tratamento de feridas complexas com técnica, carinho e atendimento domiciliar.">
+    <meta property="og:image" content="fotos/WhatsApp Image 2026-03-08 at 22.37.39 (1).jpeg">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            rose: '#B8847B',
+                            dark: '#3D2B27',
+                            deep: '#1E110E',
+                            muted: '#6B5752',
+                            light: '#FAF3F1',
+                            cream: '#FFF8F6',
+                            pearl: '#FFFCFB',
+                            warm: '#EDD5CB'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+                        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- PARALLAX LAYERS --- */
+        .parallax-container {
+            perspective: 1px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        [data-speed] {
+            will-change: transform;
+        }
+
+        /* --- NAV HIDE --- */
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .display-heading {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-weight: 400;
+            line-height: 1.0;
+            letter-spacing: -0.02em;
+        }
+
+        .display-heading em {
+            font-style: italic;
+            font-weight: 400;
+            color: #B8847B;
+        }
+
+        /* --- SCROLL REVEAL --- */
+        .sr {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .sr.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sr-delay-1 {
+            transition-delay: 0.12s;
+        }
+
+        .sr-delay-2 {
+            transition-delay: 0.24s;
+        }
+
+        .sr-delay-3 {
+            transition-delay: 0.36s;
+        }
+
+        /* --- STAGGER CHILDREN --- */
+        .stagger-children>* {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .stagger-children.visible>*:nth-child(1) {
+            transition-delay: 0.1s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children.visible>*:nth-child(2) {
+            transition-delay: 0.22s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children.visible>*:nth-child(3) {
+            transition-delay: 0.34s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HORIZONTAL LINE GROW --- */
+        .line-grow {
+            width: 0;
+            transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .line-grow.visible {
+            width: 80px;
+        }
+
+        /* --- SERVICE CARD --- */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.5s ease;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #B8847B;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px -12px rgba(107, 74, 66, 0.08);
+        }
+
+        /* --- CTA MAGNETIC --- */
+        .cta-primary {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #8C5C53;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+            z-index: -1;
+        }
+
+        .cta-primary:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* --- CTA MAGNETIC --- */
+        .grain::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            z-index: 9999;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* --- BUTTON GLOW --- */
+        .cta-primary {
+            box-shadow: 0 10px 30px -10px rgba(184, 132, 123, 0.5);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* --- A11Y --- */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* =============================================
+           MOBILE-ONLY OPTIMIZATIONS (≤ 767px)
+           Desktop remains 100% untouched.
+           ============================================= */
+        @media (max-width: 767px) {
+
+            /* --- HERO SECTION --- */
+            /* More breathing room between navbar and content */
+            #mainNav .h-20 {
+                height: 4rem;
+            }
+
+            /* Reduce hero min-height for better proportion */
+            section.min-h-\[90vh\] {
+                min-height: 85vh;
+            }
+
+            /* Better hero content spacing */
+            section.min-h-\[90vh\] .min-h-\[75vh\] {
+                min-height: auto;
+                padding-top: 5.5rem;
+                padding-bottom: 0rem; /* Pull up next elements */
+            }
+
+            /* Hero heading: Pro Max ultra-large typography */
+            section.min-h-\[90vh\] .display-heading {
+                font-size: clamp(3rem, 14vw, 4.5rem);
+                line-height: 0.95;
+                margin-bottom: 1.5rem;
+                letter-spacing: -0.03em;
+            }
+
+            /* Hero subtitle smaller but highly legible */
+            section.min-h-\[90vh\] .display-heading .block {
+                font-size: 0.85rem;
+                letter-spacing: 0.3em;
+                margin-top: 1.25rem;
+                opacity: 0.9;
+            }
+
+            /* Hero description text */
+            section.min-h-\[90vh\] .border-l-2 {
+                font-size: 1rem;
+                line-height: 1.65;
+                padding-left: 1.25rem;
+                max-width: 100%;
+            }
+
+            /* Hero CTA + text: stack vertically with tighter spacing to pull image up */
+            section.min-h-\[90vh\] .flex-col.md\:flex-row {
+                gap: 1.25rem;
+                margin-top: 1.5rem;
+                margin-bottom: 1rem; /* Less space before portrait */
+            }
+
+            /* Hero CTA button: Pro Max oversized touch target */
+            section.min-h-\[90vh\] .cta-primary {
+                width: 100%;
+                min-height: 64px; /* Essential touch target size */
+                padding: 1.25rem 2rem;
+                font-size: 1.05rem;
+                justify-content: center;
+                border-radius: 16px; /* Slightly rounder for mobile */
+            }
+
+            /* Hero portrait: drastically pull up so it's above the fold */
+            section.min-h-\[90vh\] .mt-12.lg\:mt-0 {
+                margin-top: -2rem; /* Negative margin pulls it up */
+                position: relative;
+                z-index: 10;
+            }
+            
+            /* Give the portrait a bit more prominence */
+            section.min-h-\[90vh\] .mt-12.lg\:mt-0 img {
+                transform: scale(1.1);
+                transform-origin: bottom center;
+            }
+
+            /* Background logo: PERFECTLY positioned behind her */
+            section.min-h-\[90vh\] .w-\[200\%\] {
+                width: 170%;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0.5;
+            }
+
+            /* --- HERO REORDERING FOR MOBILE --- */
+            /* We want H1 -> Photo -> p -> CTA, or H1 -> p -> Photo -> CTA. */
+            /* The easiest CSS-only way is to make the wrapping grid `display: flex`, 
+               then move the whole text block, or absolute position the photo. 
+               Given the structure, let's use flex on the grid container */
+            section.min-h-\[90vh\] .grid.grid-cols-1 {
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* The text column */
+            section.min-h-\[90vh\] .lg\:col-span-7 {
+                display: contents; /* breaks children out */
+            }
+
+            /* The photo column */
+            section.min-h-\[90vh\] .lg\:col-span-5 {
+                order: -1; /* This would put photo at very top. We want it under H1. */
+                width: 100%;
+                margin-top: 2rem;
+                margin-bottom: -1rem;
+            }
+            
+            /* Give the portrait more prominence and height */
+            section.min-h-\[90vh\] .lg\:col-span-5 img {
+                transform: scale(1.15);
+                transform-origin: bottom center;
+            }
+
+            /* Target the H1 to stay at top */
+            section.min-h-\[90vh\] h1.display-heading {
+                order: -2;
+            }
+
+            /* Target the paragraph below H1 */
+            section.min-h-\[90vh\] .border-l-2 {
+                order: 3;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Target the CTA wrapper */
+            section.min-h-\[90vh\] .flex-col.md\:flex-row {
+                display: contents; /* Break out the wrapper so p and a are siblings */
+            }
+
+            /* Target the CTA button to be at the very bottom */
+            section.min-h-\[90vh\] .cta-primary {
+                order: 4;
+            }
+
+
+            /* --- SERVICES SECTION --- */
+            /* Reduce vertical padding */
+            #especialidades {
+                padding-top: 3.5rem;
+                padding-bottom: 4rem;
+            }
+
+            /* Section header spacing */
+            #especialidades .mb-20 {
+                margin-bottom: 2rem;
+            }
+
+            /* Service heading: Pro Max impactful size */
+            #especialidades .display-heading {
+                font-size: clamp(2.5rem, 11vw, 3.5rem);
+                line-height: 1.05;
+                margin-bottom: 0.5rem;
+                letter-spacing: -0.02em;
+            }
+
+            /* Main service card: optimized mobile padding */
+            #especialidades .service-card.lg\:col-span-12 {
+                padding: 1.75rem 1.25rem;
+                border-radius: 20px;
+            }
+
+            /* Service card heading */
+            #especialidades .service-card h3 {
+                font-size: 1.85rem;
+                margin-bottom: 0.75rem;
+                line-height: 1.1;
+            }
+
+            /* Service card description: high legibility */
+            #especialidades .service-card p {
+                font-size: 1.05rem;
+                line-height: 1.65;
+            }
+
+            /* Service icon spacing */
+            #especialidades .service-card .mb-10 {
+                margin-bottom: 1.5rem;
+            }
+
+            /* Service card image */
+            #especialidades .aspect-\[4\/3\] {
+                margin-top: 1.5rem;
+                border-radius: 16px;
+            }
+
+            /* Smaller service cards (Estomaterapia, Cuidado Domiciliar) */
+            #especialidades .service-card.lg\:col-span-6 {
+                padding: 2rem 1.5rem;
+                border-radius: 24px;
+            }
+
+            /* Reduce icon bottom margin in side cards */
+            #especialidades .service-card.lg\:col-span-6 .mb-12 {
+                margin-bottom: 1.5rem;
+            }
+
+            /* Side card headings */
+            #especialidades .service-card.lg\:col-span-6 h3 {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            /* Side card text */
+            #especialidades .service-card.lg\:col-span-6 p {
+                font-size: 0.9rem;
+            }
+
+            /* Grid gap reduction */
+            #especialidades .grid {
+                gap: 1rem;
+            }
+
+            /* --- ABOUT SECTION --- */
+            #sobre {
+                padding-top: 4.5rem;
+                padding-bottom: 5rem;
+            }
+
+            /* About heading: proportional to services */
+            #sobre .display-heading {
+                font-size: clamp(2.5rem, 11vw, 3.5rem);
+                margin-bottom: 1.25rem;
+                line-height: 1.05;
+                letter-spacing: -0.02em;
+            }
+
+            /* About body text: Pro Max Legibility */
+            #sobre .space-y-6 {
+                gap: 1.25rem;
+                margin-bottom: 2.5rem;
+            }
+
+            #sobre .space-y-6 p {
+                font-size: 1.05rem;
+                line-height: 1.7;
+                opacity: 0.95;
+            }
+
+            #sobre .space-y-6 {
+                margin-bottom: 2rem;
+            }
+
+            /* About label */
+            #sobre .tracking-\[0\.3em\] {
+                margin-bottom: 1rem;
+            }
+
+            /* About badges */
+            #sobre .grid.grid-cols-1.sm\:grid-cols-2 {
+                gap: 0.75rem;
+            }
+
+            #sobre .grid.grid-cols-1.sm\:grid-cols-2 > div {
+                padding: 0.875rem 1rem;
+            }
+
+            #sobre .grid.grid-cols-1.sm\:grid-cols-2 span {
+                font-size: 0.7rem;
+            }
+
+            /* About portrait: reduce negative margins */
+            #sobre .-mt-8 {
+                margin-top: 1.5rem;
+            }
+
+            /* About portrait container: limit height on mobile */
+            #sobre .scale-105 {
+                transform: scale(1);
+                max-height: 380px;
+                overflow: hidden;
+                border-radius: 24px;
+            }
+
+            /* Portrait image: crop to show upper body */
+            #sobre .scale-105 img {
+                object-fit: cover;
+                object-position: top center;
+                max-height: 380px;
+                border-radius: 24px;
+            }
+
+            /* Reduce glow behind portrait on mobile */
+            #sobre .bg-brand-rose\/20 {
+                opacity: 0.2;
+                filter: blur(60px);
+            }
+
+            /* --- TESTIMONIALS SECTION --- */
+            #depoimentos {
+                padding-top: 4rem;
+                padding-bottom: 5rem;
+            }
+
+            /* Testimonial header */
+            #depoimentos .mb-16 {
+                margin-bottom: 2.5rem;
+            }
+
+            #depoimentos .display-heading {
+                font-size: clamp(2.5rem, 11vw, 3.5rem);
+                line-height: 1.05;
+                letter-spacing: -0.02em;
+            }
+
+            /* Testimonial cards: tighter padding */
+            #depoimentos blockquote {
+                padding: 2rem 1.5rem;
+                border-radius: 24px;
+            }
+
+            /* Stars spacing */
+            #depoimentos .mb-10 {
+                margin-bottom: 1.25rem;
+            }
+
+            /* Testimonial text: Legibility */
+            #depoimentos blockquote p {
+                font-size: 1.05rem;
+                line-height: 1.7;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Grid gap between testimonials */
+            #depoimentos .grid {
+                gap: 1.25rem;
+            }
+
+            /* Remove the staggered offset on mobile */
+            #depoimentos .lg\:mt-24 {
+                margin-top: 0;
+            }
+
+            /* Testimonial avatar */
+            #depoimentos footer .w-14 {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1rem;
+            }
+
+            #depoimentos footer .text-lg {
+                font-size: 0.95rem;
+            }
+
+            /* --- CTA SECTION --- */
+            #cta {
+                padding: 3rem 1rem;
+            }
+
+            #cta > div {
+                border-radius: 24px;
+            }
+
+            #cta .relative.z-10 {
+                padding: 3rem 1.5rem;
+            }
+
+            /* CTA heading */
+            #cta .display-heading {
+                font-size: clamp(2.5rem, 11vw, 3.5rem);
+                margin-bottom: 1rem;
+                line-height: 1.05;
+                letter-spacing: -0.02em;
+            }
+
+            /* CTA description */
+            #cta .text-xl.md\:text-2xl {
+                font-size: 1.1rem;
+                line-height: 1.65;
+                margin-bottom: 2.5rem;
+            }
+
+            /* CTA button: Pro Max Target */
+            #cta .cta-primary {
+                width: 100%;
+                min-height: 64px;
+                padding: 1.25rem 2rem;
+                font-size: 1.1rem;
+                justify-content: center;
+                border-radius: 16px;
+            }
+
+            /* --- FOOTER --- */
+            footer {
+                padding: 3rem 0;
+            }
+
+            footer .grid {
+                gap: 2rem;
+            }
+
+            /* Footer logo section */
+            footer .md\:col-span-5 {
+                text-align: left;
+            }
+
+            footer .md\:col-span-5 p {
+                font-size: 0.875rem;
+                line-height: 1.65;
+            }
+
+            /* Footer navigation */
+            footer .md\:col-span-3 ul {
+                gap: 0.5rem;
+            }
+
+            /* Footer contact items */
+            footer .md\:col-span-4 ul {
+                gap: 0.75rem;
+            }
+
+            /* Footer bottom bar */
+            footer .mt-14 {
+                margin-top: 2rem;
+                padding-top: 1.25rem;
+            }
+
+            /* --- MOBILE MENU ENHANCEMENTS --- */
+            #mobileMenu {
+                background: rgba(30, 17, 14, 0.97);
+            }
+
+            #mobileMenu nav {
+                gap: 2rem;
+                width: 100%;
+                padding: 0 3rem;
+            }
+
+            /* Menu links: refined sizing */
+            #mobileMenu .mobile-link {
+                font-size: 1.75rem;
+                letter-spacing: 0.02em;
+                padding: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+                position: relative;
+            }
+
+            /* Subtle separator between links */
+            #mobileMenu .mobile-link::after {
+                content: '';
+                position: absolute;
+                bottom: -0.25rem;
+                left: 20%;
+                width: 60%;
+                height: 1px;
+                background: rgba(184, 132, 123, 0.15);
+            }
+
+            /* Menu CTA button */
+            #mobileMenu .mt-8 {
+                margin-top: 2rem;
+                width: 100%;
+            }
+
+            #mobileMenu .mt-8 a {
+                width: 100%;
+                justify-content: center;
+                min-height: 56px;
+                font-size: 1rem;
+            }
+
+            /* Close button: bigger hit area */
+            #closeMenuBtn {
+                width: 3.5rem;
+                height: 3.5rem;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            /* --- WAVE TRANSITIONS --- */
+            /* Smoother, flatter waves on mobile as requested */
+            #especialidades .absolute.bottom-0 svg,
+            #sobre .absolute.bottom-0 svg {
+                height: 35px; /* Reduced from 50px */
+                transform: scaleY(0.7);
+                transform-origin: bottom;
+            }
+
+            /* --- GENERAL MOBILE POLISH --- */
+            /* Disable hover-based transforms on touch */
+            @media (hover: none) {
+                .service-card:hover {
+                    transform: none;
+                    box-shadow: none;
+                }
+
+                .service-card:hover::before {
+                    transform: scaleX(0);
+                }
+
+                #depoimentos blockquote:hover {
+                    transform: none;
+                }
+            }
+
+            /* Ensure all touch targets are 44px minimum */
+            a, button {
+                min-height: 44px;
+            }
+
+            /* Better active states for touch */
+            .cta-primary:active {
+                transform: scale(0.97);
+                transition: transform 0.1s ease;
+            }
+
+            .service-card:active {
+                transform: scale(0.99);
+            }
+
+            /* Smooth scroll padding for anchor navigation */
+            html {
+                scroll-padding-top: 4.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-brand-pearl text-brand-deep font-sans selection:bg-brand-rose/30 grain">
+
+    <!-- ====== NAVBAR ====== -->
+    <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
+        <!-- Scroll Progress Bar -->
+        <div id="scrollProgress"
+            class="absolute top-0 left-0 h-[3px] bg-brand-rose origin-left scale-x-0 transition-transform duration-75">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="flex items-center gap-3 sm:gap-4 group">
+                    <img src="fotos/117598.png" alt="Vitória Luz Logo"
+                        class="h-16 md:h-20 w-auto transition-transform hover:scale-105 brightness-0 invert"
+                        id="navLogo">
+                    <div class="flex flex-col justify-center transition-colors duration-500 pt-1" id="navBranding">
+                        <span class="font-serif text-2xl md:text-[28px] tracking-normal text-white leading-none">Vitória
+                            Luz</span>
+                        <span
+                            class="block text-[9px] md:text-[10px] uppercase tracking-[0.35em] text-brand-warm font-medium mt-1 leading-none pl-[2px]">Enfermeira</span>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-12" id="navLinks">
+                    <a href="#especialidades"
+                        class="text-sm font-medium text-white/80 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all">Especialidades</a>
+                    <a href="#sobre"
+                        class="text-sm font-medium text-white/80 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all">Sobre</a>
+                    <a href="#depoimentos"
+                        class="text-sm font-medium text-white/80 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all">Depoimentos</a>
+                    <a href="https://wa.me/550000000000"
+                        class="cta-primary min-h-[48px] px-8 py-3 bg-brand-rose text-white text-sm font-bold rounded-full flex items-center gap-2.5 cursor-pointer hover:shadow-lg transition-all">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        Agendar
+                    </a>
+                </div>
+
+                <button id="mobileMenuBtn"
+                    class="md:hidden w-10 h-10 flex items-center justify-center text-white cursor-pointer relative z-50 transition-colors"
+                    aria-label="Abrir menu">
+                    <i data-lucide="menu" class="w-5 h-5 pointer-events-none"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <section class="relative min-h-[90vh] overflow-hidden bg-brand-deep">
+            <!-- Background Layer (Parallax Image) -->
+            <div class="absolute inset-0 z-0 h-[120%] w-[120%] -left-[10%] -top-[10%]" data-speed="-0.1">
+                <img src="fotos/WhatsApp Image 2026-03-08 at 22.50.56.jpeg" alt="" aria-hidden="true"
+                    class="w-full h-full object-cover opacity-70">
+            </div>
+
+            <!-- Static Gradient Overlay (Blends perfectly with the next section) -->
+            <div
+                class="absolute inset-0 z-0 bg-gradient-to-b from-brand-deep/30 via-transparent to-brand-pearl pointer-events-none">
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-12 flex items-center min-h-[75vh]">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center w-full">
+
+                    <!-- New Asymmetric Editorial Text -->
+                    <div class="lg:col-span-7 relative z-20" data-speed="0.05">
+                        <h1
+                            class="display-heading text-[clamp(2.5rem,8vw,6.5rem)] text-white mb-6 sr sr-delay-1 leading-[1.05]">
+                            Cicatrização <span class="text-brand-warm drop-shadow-md">técnica</span>
+                            <span
+                                class="block text-base md:text-xl font-sans font-medium uppercase tracking-[0.35em] text-white/70 mt-5">Com
+                                olhar humano</span>
+                        </h1>
+
+                        <div class="flex flex-col md:flex-row items-start md:items-center gap-8 mt-12 sr sr-delay-2">
+                            <p
+                                class="text-lg md:text-xl text-white/95 font-light leading-relaxed max-w-[35ch] border-l-2 border-brand-warm/60 pl-6">
+                                Tratamentos avançados para feridas complexas. No conforto da sua casa, com a precisão
+                                que sua saúde exige.
+                            </p>
+
+                            <a href="https://wa.me/550000000000"
+                                class="cta-primary relative group overflow-hidden min-h-[64px] px-10 py-4 bg-brand-rose text-white font-bold text-base rounded-full flex items-center justify-center gap-3 cursor-pointer transition-all hover:scale-105 hover:shadow-[0_20px_50px_rgba(165,128,121,0.3)] shrink-0">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                Avaliar meu caso
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Photo Column -->
+                    <div class="lg:col-span-5 relative flex justify-center mt-12 lg:mt-0">
+                        <!-- Background Logo (Parallax) - High Visibility White -->
+                        <div
+                            class="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 w-[200%] md:w-[260%] opacity-50 pointer-events-none">
+                            <div data-speed="0.25">
+                                <img src="fotos/117598.png" alt=""
+                                    class="w-full h-auto object-contain brightness-0 invert">
+                            </div>
+                        </div>
+
+                        <!-- Portrait - With seamless fade out at the bottom -->
+                        <div class="relative z-10 animate-fade-in max-w-[280px] md:max-w-2xl mx-auto w-full flex items-end">
+                            <img src="fotos/117614.png" alt="Vitória Luz" class="w-full h-auto object-contain block"
+                                style="-webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%); mask-image: linear-gradient(to top, transparent 0%, black 15%);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== SERVICES ====== -->
+        <section id="especialidades" class="pt-28 pb-36 md:pt-36 md:pb-48 px-6 bg-brand-pearl relative overflow-hidden">
+            <!-- Subtle Texture Shell -->
+            <div class="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none">
+                <div
+                    class="absolute top-20 right-[-10%] w-[400px] h-[400px] border-[60px] border-brand-rose rounded-full">
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto relative z-10">
+                <div class="mb-20 sr">
+                    <p class="text-brand-rose font-semibold text-xs uppercase tracking-[0.3em] mb-4">O que eu faço</p>
+                    <h2 class="display-heading text-4xl md:text-6xl text-brand-deep max-w-lg leading-[1.05] pb-2">Como
+                        posso ajudar na sua
+                        recuperação?</h2>
+                    <div class="line-grow h-px bg-brand-rose mt-6"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 stagger-children">
+                    <!-- High-Impact Card 1 -->
+                    <div
+                        class="service-card lg:col-span-12 bg-white rounded-[40px] p-12 md:p-20 border border-brand-warm/20 relative overflow-hidden group">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+                            <div>
+                                <div
+                                    class="w-16 h-16 rounded-full bg-brand-rose flex items-center justify-center text-white mb-10 shadow-xl shadow-brand-rose/20">
+                                    <i data-lucide="sparkles" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="font-serif text-4xl md:text-5xl text-brand-deep mb-6 leading-[1.1]">
+                                    Cicatrização <br>de Feridas Completa</h3>
+                                <p class="text-brand-dark/90 leading-relaxed text-lg max-w-md">
+                                    Tratamento especializado para casos complexos: úlceras, pé diabético e lesões
+                                    pós-cirúrgicas. Tecnologia de ponta aliada à fisiologia da cura.
+                                </p>
+                            </div>
+                            <div class="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
+                                <img src="fotos/WhatsApp Image 2026-03-08 at 22.50.56.jpeg"
+                                    class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
+                                    alt="Cicatrização Avançada">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Split Aesthetic Cards -->
+                    <div
+                        class="service-card lg:col-span-6 bg-brand-deep text-white rounded-[40px] p-12 relative overflow-hidden group">
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center text-brand-rose mb-12 border border-white/5">
+                                <i data-lucide="brain" class="w-7 h-7"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-3xl mb-4">Estomaterapia</h3>
+                                <p class="text-white/75 leading-relaxed text-base">Suporte técnico e acolhimento para
+                                    pacientes com estomas. Devolvendo a autonomia e segurança no dia a dia.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="service-card lg:col-span-6 bg-brand-warm rounded-[40px] p-12 relative overflow-hidden group">
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-brand-rose flex items-center justify-center text-white mb-12 shadow-lg">
+                                <i data-lucide="home" class="w-7 h-7"></i>
+                            </div>
+                            <div class="text-brand-deep">
+                                <h3 class="font-serif text-3xl mb-4">Cuidado Domiciliar</h3>
+                                <p class="opacity-80 leading-relaxed text-base">O rigor hospitalar no conforto do seu
+                                    lar. Avaliações contínuas e planos de cuidado 100% personalizados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desenho de transição (Onda contínua) -->
+            <div class="absolute bottom-0 left-0 w-full z-10 pointer-events-none">
+                <svg class="w-full h-[80px] sm:h-[120px] md:h-[150px] translate-y-1 block"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150" preserveAspectRatio="none">
+                    <!-- Preenchimento base para juntar com a próxima seção (#1E110E é a cor de fundo brand-deep) -->
+                    <path d="M0,140 Q150,90 250,130 T650,90 T1050,70 T1440,140 L1440,152 L0,152 Z" fill="#1E110E" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- ====== ABOUT (ATENDIMENTO DOMICILIAR) ====== -->
+        <section id="sobre"
+            class="pt-24 pb-36 md:pt-32 md:pb-48 px-6 bg-brand-deep relative overflow-hidden text-white">
+            <!-- Background Logo Watermark -->
+            <div class="absolute inset-0 z-0 flex items-center justify-center opacity-[0.03] pointer-events-none"
+                data-speed="0.05">
+                <img src="fotos/117598.png" alt="" aria-hidden="true"
+                    class="w-[150%] md:w-[120%] h-auto object-contain brightness-0 invert">
+            </div>
+
+            <div class="max-w-6xl mx-auto relative z-10">
+                <div class="flex flex-col lg:grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+
+                    <!-- Text (Taking 7 columns) -->
+                    <div class="lg:col-span-7 sr flex flex-col justify-center">
+                        <p
+                            class="text-brand-rose font-semibold text-xs uppercase tracking-[0.3em] mb-6 flex items-center gap-4">
+                            <span class="w-8 h-px bg-brand-rose"></span> Atendimento Domiciliar
+                        </p>
+
+                        <h2 class="display-heading text-[clamp(2.5rem,5vw,4.5rem)] text-white mb-10 leading-[1.1]">
+                            Presença que <em class="!text-brand-warm italic">acolhe</em>,<br>técnica que cura.
+                        </h2>
+
+                        <div class="space-y-6 text-white/90 text-lg md:text-xl font-light leading-[1.8] mb-12">
+                            <p>Eu entendo que uma ferida que não fecha é algo que vai muito além da pele. Ela afeta o
+                                sono, a mobilidade e a alegria de viver. Por isso, meu trabalho é focado em resultados
+                                reais e na devolução da dignidade para o paciente.</p>
+                            <p>Unindo a ciência da cicatrização avançada à escuta atenta, levo o tratamento
+                                especializado até onde você se sente mais seguro: o seu lar.</p>
+                        </div>
+
+                        <!-- Modern Dark Badges -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transition-colors hover:bg-white/10">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-brand-rose/20 flex items-center justify-center text-brand-warm shrink-0">
+                                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                                </div>
+                                <span
+                                    class="text-sm font-semibold text-white/90 leading-tight uppercase tracking-wider">Especialista
+                                    em<br>Estomaterapia</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transition-colors hover:bg-white/10">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-brand-rose/20 flex items-center justify-center text-brand-warm shrink-0">
+                                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                                </div>
+                                <span
+                                    class="text-sm font-semibold text-white/90 leading-tight uppercase tracking-wider">Atendimento
+                                    em<br>Goiânia e região</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo (Taking 5 columns) - Floating Portrait moved up -->
+                    <div class="w-full lg:col-span-5 relative flex justify-center sr sr-delay-1 -mt-8 lg:-mt-16">
+                        <!-- Subtle decorative glow behind -->
+                        <div class="absolute inset-0 bg-brand-rose/20 rounded-full blur-[100px] -z-10 opacity-40"></div>
+
+                        <div class="relative w-full max-w-md lg:max-w-xl scale-105 lg:scale-110 origin-bottom">
+                            <img src="fotos/117614.png" alt="Enfermeira Vitória Luz"
+                                class="w-full h-auto object-contain object-bottom drop-shadow-2xl">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Desenho de transição (Onda contínua inferior) -->
+            <div class="absolute bottom-0 left-0 w-full z-10 pointer-events-none -scale-x-100">
+                <svg class="w-full h-[80px] sm:h-[120px] md:h-[150px] translate-y-1 block"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150" preserveAspectRatio="none">
+                    <!-- Preenchimento base para juntar com a próxima seção (#FFFCFB é a cor de fundo brand-pearl) -->
+                    <path d="M0,140 Q150,90 250,130 T650,90 T1050,70 T1440,140 L1440,152 L0,152 Z" fill="#FFFCFB" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- ====== TESTIMONIALS ====== -->
+        <section id="depoimentos" class="py-28 md:py-36 px-6 bg-brand-pearl relative overflow-hidden">
+            <!-- Decorative Logo Path -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.03] pointer-events-none">
+                <img src="fotos/117598.png" alt="" class="w-full h-full object-contain grayscale">
+            </div>
+
+            <div class="max-w-5xl mx-auto relative z-10">
+                <div class="text-center mb-16 sr">
+                    <p class="text-brand-rose font-semibold text-xs uppercase tracking-[0.3em] mb-4">Depoimentos</p>
+                    <h2 class="display-heading text-4xl md:text-6xl text-brand-deep">Confiança que<br>gera
+                        <em class="italic">resultados</em>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                    <div class="space-y-12">
+                        <blockquote
+                            class="bg-white rounded-[40px] p-12 border border-brand-warm/20 relative shadow-2xl shadow-brand-deep/5 transition-all hover:scale-[1.02] duration-500">
+                            <div class="flex gap-1 text-brand-rose mb-10">
+                                <i data-lucide="star" class="w-5 h-5 fill-brand-rose"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-brand-rose"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-brand-rose"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-brand-rose"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-brand-rose"></i>
+                            </div>
+                            <p class="text-brand-deep text-xl leading-[1.7] mb-10 italic">"Minha mãe tinha
+                                uma ferida há 8 meses. Com a Vitória, em 6 semanas estava cicatrizada. Profissionalismo
+                                e carinho raros de se encontrar."</p>
+                            <footer class="flex items-center gap-5">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-brand-cream border-2 border-white flex items-center justify-center font-serif font-bold text-brand-deep text-xl shadow-inner">
+                                    R</div>
+                                <div>
+                                    <p class="text-lg font-bold text-brand-deep leading-none mb-1">Renata M.</p>
+                                    <p class="text-sm text-brand-muted uppercase tracking-widest font-semibold">Filha de
+                                        paciente</p>
+                                </div>
+                            </footer>
+                        </blockquote>
+                    </div>
+
+                    <div class="lg:mt-24 space-y-12">
+                        <blockquote
+                            class="bg-brand-rose text-white rounded-[40px] p-12 relative shadow-2xl shadow-brand-rose/20 transition-all hover:scale-[1.02] duration-500">
+                            <div class="flex gap-1 text-white mb-10">
+                                <i data-lucide="star" class="w-5 h-5 fill-white"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-white"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-white"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-white"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-white"></i>
+                            </div>
+                            <p class="text-white text-xl leading-[1.7] mb-10 italic">"Depois de uma
+                                cirurgia complicada, precisei de curativos em casa. Vitória me explicou cada passo,
+                                nunca me senti tão segura."</p>
+                            <footer class="flex items-center gap-5">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-white/20 backdrop-blur border-2 border-white/30 flex items-center justify-center font-serif font-bold text-white text-xl">
+                                    C</div>
+                                <div>
+                                    <p class="text-lg font-bold text-white leading-none mb-1">Carlos A.</p>
+                                    <p class="text-sm text-white/60 uppercase tracking-widest font-semibold">Paciente
+                                        Pós-Cirúrgico</p>
+                                </div>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center sr">
+                    <a href="https://wa.me/550000000000"
+                        class="inline-flex items-center gap-2 text-brand-deep font-bold hover:text-brand-rose transition-colors group relative z-10">
+                        Quer cuidar da sua saúde? Fale comigo
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CTA ====== -->
+        <section class="px-6 py-24 md:py-32 relative" id="cta">
+            <div
+                class="max-w-5xl mx-auto bg-brand-deep rounded-[40px] overflow-hidden relative sr shadow-2xl shadow-brand-deep/20 isolate">
+                <!-- Geometry graphic -->
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-brand-rose rounded-full filter blur-[80px] opacity-20 -z-10 translate-x-1/2 -translate-y-1/2">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-64 h-64 bg-brand-warm rounded-full filter blur-[80px] opacity-10 -z-10 -translate-x-1/2 translate-y-1/2">
+                </div>
+
+                <div class="relative z-10 px-10 py-24 md:px-20 md:py-40 text-center">
+                    <h2
+                        class="display-heading text-[clamp(2.5rem,8vw,5.5rem)] text-white mb-8 max-w-4xl mx-auto leading-[1.0]">
+                        Recuperar sua <span class="text-brand-warm">saúde</span> é um ato de <em
+                            class="!text-brand-warm italic">carinho</em>.
+                    </h2>
+                    <p class="text-white/85 text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">
+                        Inicie seu tratamento especializado hoje mesmo. Juntas, vamos encontrar o caminho para a sua
+                        cicatrização.
+                    </p>
+                    <a href="https://wa.me/550000000000"
+                        class="cta-primary relative group overflow-hidden inline-flex min-h-[80px] px-14 py-6 bg-brand-rose text-white font-bold text-xl rounded-full items-center gap-4 cursor-pointer transition-all hover:scale-105 hover:shadow-[0_25px_60px_rgba(165,128,121,0.4)]">
+                        <i data-lucide="message-circle" class="w-7 h-7"></i>
+                        Falar com a Vitória
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="py-16 border-t border-brand-warm/20">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-3 sm:gap-4 mb-7">
+                    <img src="fotos/117598.png" alt="Logo" class="h-14 md:h-16 w-auto">
+                    <div class="flex flex-col justify-center pt-1">
+                        <span
+                            class="font-serif text-2xl md:text-[28px] text-brand-deep tracking-normal leading-none">Vitória
+                            Luz</span>
+                        <span
+                            class="block text-[9px] md:text-[10px] uppercase tracking-[0.35em] text-brand-rose font-medium mt-1 leading-none pl-[2px]">Enfermeira</span>
+                    </div>
+                </div>
+                <p class="text-brand-muted/90 text-[15px] max-w-sm leading-[1.7]">Referência em Estomaterapia e
+                    tratamento avançado de feridas. Um novo padrão de cuidado domiciliar, unindo tecnologia e afeto.</p>
+            </div>
+
+            <div class="md:col-span-3">
+                <h4 class="text-xs uppercase tracking-[0.2em] font-bold text-brand-rose mb-5">Navegação</h4>
+                <ul class="space-y-3 text-sm text-brand-muted">
+                    <li><a href="#especialidades"
+                            class="hover:text-brand-rose transition-colors cursor-pointer">Especialidades</a></li>
+                    <li><a href="#sobre" class="hover:text-brand-rose transition-colors cursor-pointer">Sobre</a></li>
+                    <li><a href="#depoimentos"
+                            class="hover:text-brand-rose transition-colors cursor-pointer">Depoimentos</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4">
+                <h4 class="text-xs uppercase tracking-[0.2em] font-bold text-brand-rose mb-5">Contato</h4>
+                <ul class="space-y-4 text-sm text-brand-muted">
+                    <li>
+                        <a href="mailto:vitoria@luzcuidados.com"
+                            class="flex items-center gap-3 hover:text-brand-rose transition-colors group">
+                            <div
+                                class="w-8 h-8 rounded-full bg-brand-cream flex items-center justify-center text-brand-rose group-hover:scale-110 transition-transform">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </div>
+                            vitoria@luzcuidados.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+559999999999"
+                            class="flex items-center gap-3 hover:text-brand-rose transition-colors group">
+                            <div
+                                class="w-8 h-8 rounded-full bg-brand-cream flex items-center justify-center text-brand-rose group-hover:scale-110 transition-transform">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            (99) 9999-9999
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/vitorializenf" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-3 hover:text-brand-rose transition-colors group">
+                            <div
+                                class="w-8 h-8 rounded-full bg-brand-cream flex items-center justify-center text-brand-rose group-hover:scale-110 transition-transform">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </div>
+                            @vitorializenf
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div
+            class="max-w-6xl mx-auto px-6 mt-14 pt-6 border-t border-brand-warm/10 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-brand-dark/30 uppercase tracking-widest font-semibold">
+            <p>&copy; 2026 Vitória Luz. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ====== MOBILE MENU OVERLAY ====== -->
+    <div id="mobileMenu"
+        class="fixed inset-0 bg-brand-deep/95 backdrop-blur-md z-[60] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-center items-center">
+        <!-- Close Button -->
+        <button id="closeMenuBtn"
+            class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center text-white/80 hover:text-white transition-colors cursor-pointer outline-none">
+            <i data-lucide="x" class="w-8 h-8 pointer-events-none"></i>
+        </button>
+
+        <!-- Menu Links -->
+        <nav class="flex flex-col items-center gap-10">
+            <a href="#especialidades"
+                class="mobile-link text-3xl font-serif font-bold text-white hover:text-brand-rose transition-colors">Especialidades</a>
+            <a href="#sobre"
+                class="mobile-link text-3xl font-serif font-bold text-white hover:text-brand-rose transition-colors">Sobre</a>
+            <a href="#depoimentos"
+                class="mobile-link text-3xl font-serif font-bold text-white hover:text-brand-rose transition-colors">Depoimentos</a>
+
+            <div class="mt-8">
+                <a href="https://wa.me/550000000000"
+                    class="inline-flex min-h-[56px] px-10 py-4 bg-brand-rose text-white font-bold text-base rounded-full items-center gap-3 cursor-pointer shadow-lg shadow-brand-rose/20 transition-transform active:scale-95">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    Falar Agora
+                </a>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- ====== SCRIPTS ====== -->
+    <script>
+        lucide.createIcons();
+
+        // --- Scroll Reveal ---
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.sr, .stagger-children, .line-grow').forEach(el => io.observe(el));
+
+        // --- Navbar Smart Hide ---
+        const nav = document.getElementById('mainNav');
+        const navBranding = document.getElementById('navBranding');
+        const navLinks = document.getElementById('navLinks');
+        const navLogo = document.getElementById('navLogo');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > 100) {
+                if (currentScrollY > lastScrollY) {
+                    nav.classList.add('nav-hidden');
+                } else {
+                    nav.classList.remove('nav-hidden');
+                    nav.classList.add('bg-white', 'shadow-xl');
+
+                    // Logo brightness
+                    navLogo.classList.remove('brightness-0', 'invert');
+
+                    // Text colors
+                    const spans = navBranding.querySelectorAll('span');
+                    spans[0].className = "font-serif text-2xl md:text-[28px] tracking-normal text-brand-deep leading-none";
+                    spans[1].className = "block text-[9px] md:text-[10px] uppercase tracking-[0.35em] text-brand-rose font-medium mt-1 leading-none pl-[2px]";
+
+                    navLinks.querySelectorAll('a').forEach(a => {
+                        if (!a.classList.contains('cta-primary')) {
+                            a.className = "text-sm font-medium text-brand-dark hover:text-brand-rose transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-brand-rose hover:after:w-full after:transition-all";
+                        }
+                    });
+                }
+            } else {
+                nav.classList.remove('nav-hidden', 'bg-white', 'shadow-xl');
+
+                // Top State (Transparent)
+                navLogo.classList.add('brightness-0', 'invert');
+
+                const spans = navBranding.querySelectorAll('span');
+                spans[0].className = "font-serif text-2xl md:text-[28px] tracking-normal text-white leading-none";
+                spans[1].className = "block text-[9px] md:text-[10px] uppercase tracking-[0.35em] text-brand-warm font-medium mt-1 leading-none pl-[2px]";
+
+                navLinks.querySelectorAll('a').forEach(a => {
+                    if (!a.classList.contains('cta-primary')) {
+                        a.className = "text-sm font-medium text-white/80 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all";
+                    }
+                });
+            }
+
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+
+        // --- Parallax on scroll ---
+        const parallaxEls = document.querySelectorAll('[data-speed]');
+        const scrollProgress = document.getElementById('scrollProgress');
+        let ticking = false;
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrolled = (scrollY / docHeight);
+
+                    // Update progress bar
+                    if (scrollProgress) {
+                        scrollProgress.style.transform = `scaleX(${scrolled})`;
+                    }
+
+                    // Parallax
+                    parallaxEls.forEach(el => {
+                        const speed = parseFloat(el.dataset.speed);
+                        el.style.transform = `translateY(${scrollY * speed}px)`;
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // --- Counter Animation ---
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const countTo = parseInt(target.getAttribute('data-target'));
+                    let count = 0;
+                    const duration = 2000;
+                    const increment = countTo / (duration / 16);
+
+                    const updateCount = () => {
+                        count += increment;
+                        if (count < countTo) {
+                            target.innerText = '+' + Math.floor(count).toLocaleString();
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            target.innerText = '+' + countTo.toLocaleString();
+                        }
+                    };
+                    updateCount();
+                    counterObserver.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+        // --- Smooth scroll ---
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // --- Mobile Menu Logic ---
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = !mobileMenu.classList.contains('translate-x-full');
+            if (isOpen) {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+
+                // Adjust menu button color based on scroll position
+                if (window.scrollY > 100) {
+                    mobileMenuBtn.classList.replace('text-white', 'text-brand-dark');
+                }
+            } else {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
+
+                // Force button white when menu is open so it contrasts with dark bg
+                mobileMenuBtn.classList.replace('text-brand-dark', 'text-white');
+            }
+        }
+
+        // Scroll listener for the mobile menu button color
+        window.addEventListener('scroll', () => {
+            const isOpen = !mobileMenu.classList.contains('translate-x-full');
+            if (!isOpen) { // Only change colors if menu is closed
+                if (window.scrollY > 100) {
+                    mobileMenuBtn.classList.add('text-brand-dark');
+                    mobileMenuBtn.classList.remove('text-white');
+                } else {
+                    mobileMenuBtn.classList.add('text-white');
+                    mobileMenuBtn.classList.remove('text-brand-dark');
+                }
+            }
+        }, { passive: true });
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu();
+            });
+        });
+    </script>
+</body>
+
+</html>
